@@ -1,0 +1,74 @@
+.alert-message{
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    background-color: #0d47a1;
+    border-radius: 50px;
+    height: 40px;
+    width: 400px;
+    margin-left: 4%;
+    padding: 5px; 
+    text-align: center;   
+}
+
+main{
+    margin-bottom: 15%;
+}
+
+.corpo-site{
+    background-color: white;
+    width: 100%;
+}
+
+.title-cards{
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+.formulario{
+    padding: 2% 4%;
+    background-color: #fafafa;
+    border-radius: 3px;
+}
+
+#botao-login{
+    margin-top: 20px;
+    height: 60px;
+}
+ #input-login{
+    margin-top: 25px;
+ }
+
+ .img-login-inicio{
+    width: 90%;
+    height: auto;
+ }
+ .fundo-login{
+    padding: 10%;
+    background: #0d47a1  ;
+ }
+
+.title-form{
+    margin-top: 7%;
+    font-weight: 600;
+}
+
+.rodape {
+    position: fixed;
+    bottom: 0;
+    height: auto;
+    width: 100%;
+    background-color: #0d47a1;
+}
+
+.corpo-cadastro-livro{
+    margin-bottom: 8%;
+}
+
+@media (max-width: 600px)
+{
+    .corpo-cadastro-livro{
+        margin-bottom: 30%;
+    }
+    
+}
