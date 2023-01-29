@@ -51,7 +51,6 @@ if(isset($_SESSION['id_master']))
                        
                         <li><a href="consulta-livro.php" title="Livros Cadastrados"><span class="material-icons">manage_search</span></a></li>
                         <li><a href="historico-emprestimo.php" title="Histórico"><span class="material-icons"><span class="material-icons">fact_check</span></span></a></li>
-                        <li><a href="#" title="Devolução Livros"><span class="material-icons">assignment_return</span></a></li>
                         <li><a href="sair.php" title="Sair"><span class="material-icons">logout </span></a></li>
                         <li><a><span class="material-icons">person</span> &nbsp <?php echo $informacoes['nome']?></a></li>
                         <?php
@@ -150,14 +149,14 @@ if(isset($_SESSION['id_master']))
                 <table id="table-format" class="display responsive-table">
                     <thead>
                         <tr>
-                            <th>Nome</th>
-                            <th>Edição</th>
-                            <th>Editora</th>
-                            <th>Autor</th>
-                            <th>Data Publicação</th>                           
-                            <th>Categoria</th>
-                            <th>Qtd</th>
-                            <th>Emprestar / Devolver</th>
+                            <th>NOME</th>
+                            <th>EDIÇÃO</th>
+                            <th>EDITORA</th>
+                            <th>AUTOR</th>
+                            <th>DATA PUBLICAÇÃO</th>                           
+                            <th>CATEGORIA</th>
+                            <th>QTD</th>
+                            <th>EMPRESTAR / DEVOLVER</th>
                         </tr>
                     </thead>
                     <tbody>  

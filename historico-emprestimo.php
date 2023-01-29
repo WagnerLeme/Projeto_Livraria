@@ -73,15 +73,15 @@ if(isset($_SESSION['id_master']))
             <table id="table-format" class="display responsive-table">
                 <thead>    
                     <tr>
-                        <th>ID EMPRESTIMO</th>
+                        <th>ID EMPRÉSTIMO</th>
                         <th>ID USUÁRIO</th>
                         <th>ISBN</th>
-                        <th>DATA EMPRESTIMO</th>
+                        <th>DATA EMPRÉSTIMO</th>
                         <th>DATA DEVOLUÇÃO</th>
                         <th>NOME LIVRO</th>
                         <th>NOME</th>
                         <th>E-MAIL</th>
-                        <th>1-DEVOLVIDO 0-PENDENTE</th>
+                        <th>STATUS (1-DEVOLVIDO / 0-PENDENTE)</th>
                         <th></th>
                     </tr>
                 </thead>

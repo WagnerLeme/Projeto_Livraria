@@ -74,15 +74,15 @@ if(!isset($_SESSION['id_master']))
                 <table id="table-format" class="display responsive-table">
                     <thead>
                         <tr>
-                            <th>Id Emprestimo</th>
-                            <th>Id Usuário</th>
+                            <th>ID EMPRÉSTIMO</th>
+                            <th>ID USUÁRIO</th>
                             <th>ISBN</th>
-                            <th>Data Emprestimo</th>
-                            <th>Data Devolução</th>
-                            <th>Nome Livro</th>
-                            <th>Usuario</th>
-                            <th>Email</th>
-                            <th>Status (1 - devolvido/ 0- Pendente)</th>
+                            <th>DATA EMPRÉSTIMO</th>
+                            <th>DATA DEVOLUÇÃO</th>
+                            <th>NOME LIVRO</th>
+                            <th>USUÁRIO</th>
+                            <th>EMAIL</th>
+                            <th>STATUS (1 - DEVOLVIDO/ 0- PENDENTE)</th>
                             <th></th>
                         </tr>
                     </thead>  
@@ -109,7 +109,7 @@ if(!isset($_SESSION['id_master']))
                        {
                        ?>  
                              <div class="aviso">
-                            <h4>Ainda não há livros cadastradas!</h4>
+                            <h4 class="alert-message">Histórico vazio</h4>
                         </div> 
                     <?php
                     }

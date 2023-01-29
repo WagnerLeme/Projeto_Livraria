@@ -104,7 +104,7 @@ if(!isset($_SESSION['id_master']))
         <div class="row container">
                 <section class="col s12"  id="esquerda">
                     <form method="POST">
-                        <h5 class="center light">CADASTRO DE LIVRO</h5>
+                        <h5 class="center light"><strong>CADASTRO DE LIVRO<strong></h5>
                         <label for="isbn">ISBN</label>
                         <input type="number" name="isbn" id="isbn" maxlength="40" required 
                         value="<?php if(isset($res)){echo $res['isbn'];}?>"

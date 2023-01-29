@@ -104,9 +104,20 @@ if(!isset($_SESSION['id_master']))
             }else if(isset($_GET['id']))
             {
                 $id_livro = addslashes($_GET['id']);
-                $l->excluirLivro($id_livro);
-                header("location: consulta-livro.php");
-                exit();
+                if($l->excluirLivro($id_livro) == 1)
+                {
+                    header("location: consulta-livro.php");
+                    exit();
+                }
+                else if($l->excluirLivro($id_livro) == 0)
+                {
+                    ?>
+                    <div class="aviso">
+                        <h4 class="alert-message">Você não pode apagar um livro vinculado ao usuário.</h4>
+                    </div> 
+                    <?php
+                }
+
             }
         ?>
         <?php
@@ -125,14 +136,14 @@ if(!isset($_SESSION['id_master']))
                 <table id="table-format" class="display responsive-table">
                     <thead>
                         <tr>
-                            <th>Nome</th>
-                            <th>Edição</th>
-                            <th>Editora</th>
-                            <th>Autor</th>
-                            <th>D Publicação</th>
-                            <th>Categoria</th>
-                            <th>Qtd</th>
-                            <th>Editar/Excluir</th>
+                            <th>NOME</th>
+                            <th>EDIÇÃO</th>
+                            <th>EDITORA</th>
+                            <th>AUTOR</th>
+                            <th>D PUBLICAÇÃO</th>
+                            <th>CATEGORIA</th>
+                            <th>QTD</th>
+                            <th>EDITAR/EXCLUIR</th>
                         </tr>
                     </thead>  
                     <tbody>  
@@ -160,7 +171,7 @@ if(!isset($_SESSION['id_master']))
                        ?>  
 
                         <div class="aviso">
-                            <h4>Ainda não há livros cadastradas!</h4>
+                            <h4 class="alert-message">Ainda não há livros cadastrados!</h4>
                         </div> 
                     <?php
                     }

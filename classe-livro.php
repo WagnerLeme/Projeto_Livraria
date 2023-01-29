@@ -59,10 +59,15 @@ Class Livro{
     // metodo de excluir pessoa
     public function excluirLivro($isbn)
     {
+        try
+        {
         $cmd = $this->pdo->prepare("DELETE FROM livros WHERE isbn = :i");
         $cmd ->bindValue(":i", $isbn);
         $cmd ->execute();
-        echo $cmd -> errorInfo();
+        return 1;
+        }catch(Exception $e){
+            return 0;
+        }
     }
 
     // buscar os dados de um livro

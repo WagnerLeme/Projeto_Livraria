@@ -111,7 +111,7 @@ if(!isset($_SESSION['id_master']))
                         value="<?php if(isset($res)){echo $res['nome'];}?>"
                         >
                         <label for="telefone">Telefone</label>
-                        <input type="tel" name="telefone" id="telefone" maxlength="15" required 
+                        <input type="tel" name="telefone" id="telefone" maxlength="20" required 
                         value="<?php if(isset($res)){echo $res['telefone'];}?>"
                         >
                         <label for="email">E-mail</label>
