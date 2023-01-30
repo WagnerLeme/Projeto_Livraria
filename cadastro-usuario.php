@@ -68,16 +68,16 @@ if(!isset($_SESSION['id_master']))
         <?php
             //--------------------------- CADASTRO DE USUÁRIO -----------------------------
 
-            if(isset($_POST['nome']))// isset verifica se existe o array post chamado nome; e i IF VERIFICA SE A PESSOA CLICOU NO BOTÃO CADASTRAR OU NO BOTÃO EDITAR
+            if(isset($_POST['nome']))
             {
-                    $nome = addslashes($_POST['nome']);// addslashes = permite que consiga pegar o valor digitado no input de forma segura e salvar na variavel
+                    $nome = addslashes($_POST['nome']);
                     $telefone = addslashes($_POST['telefone']);
                     $email = addslashes($_POST['email']);
                     $endereco = addslashes($_POST['endereco']);
                     $senha = addslashes($_POST['senha']);
                     $permissao = addslashes($_POST['permissao']);
 
-                        if(!empty($nome) && !empty($telefone) && !empty($email)  && !empty($endereco) && !empty($senha) && !empty($permissao)) //empty = verifica se não esta vazio a variavel
+                        if(!empty($nome) && !empty($telefone) && !empty($email)  && !empty($endereco) && !empty($senha) && !empty($permissao)) 
                         {
                             if($p->cadastrarPessoa($nome,$telefone, $email, $endereco, $senha, $permissao) == true)
                             {
@@ -154,11 +154,6 @@ if(!isset($_SESSION['id_master']))
  <!-- Compiled and minified JavaScript --> 
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
          
-        <script>
-                $(document).ready(function(){
-                    $('select').formSelect();
-                });
-        </script>
 </body>
 </html>
 

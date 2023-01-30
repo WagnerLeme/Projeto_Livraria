@@ -49,7 +49,7 @@ if(isset($_SESSION['id_master']))
                     if(isset($_SESSION['id_usuario']))
                     {
                         ?>
-                                <li><a href="consulta-livro.php" title="Livros Cadastrados"><span class="material-icons">manage_search</span></a></li>
+                                <li><a href="areaPrivada.php" title="Livros Cadastrados"><span class="material-icons">manage_search</span></a></li>
                                 <li><a href="historico-emprestimo.php" title="Histórico"><span class="material-icons"><span class="material-icons">fact_check</span></span></a></li>
                                 <li><a href="sair.php" title="Sair"><span class="material-icons">logout </span></a></li>
                                 <li><a><span class="material-icons">person</span> &nbsp <?php echo $informacoes['nome']?></a></li>
@@ -88,15 +88,13 @@ if(isset($_SESSION['id_master']))
                 <tbody>
                     <?php
                         $dados = $us->buscarDadosEmprestimo($informacoes['id']);
-                        if(count($dados) > 0)// verifica se tem pessoas cadastradas no banco
+                        if(count($dados) > 0)
                         {
                             
                             for($i=0; $i < count($dados); $i++){
                                 echo"<tr>";
-                                foreach($dados[$i] as $k => $v){
-                                    
-                                        echo "<td>".$v."</td>";
-                                    
+                                foreach($dados[$i] as $k => $v){    
+                                        echo "<td>".$v."</td>";   
                                 }
                                 ?> 
                                 <td>
@@ -105,7 +103,8 @@ if(isset($_SESSION['id_master']))
                                 <?php
                                 echo "</tr>";
                             }
-                        }else // se o banco estiver vazio
+                        }
+                        else 
                         {
                         ?> 
                                  <div class="aviso">

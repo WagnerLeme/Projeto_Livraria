@@ -68,13 +68,12 @@ if(!isset($_SESSION['id_master']))
      </header> 
     <main class="corpo-cadastro-livro">
         <?php
-            if(isset($_POST['nome']))// isset verifica se existe o array post chamado nome; e i IF VERIFICA SE A PESSOA CLICOU NO BOTÃO CADASTRAR OU NO BOTÃO EDITAR
+            if(isset($_POST['nome']))
             {
-                //---------------------- EDITAR ----------------------
                 if(isset($_GET['isbn_up']) && !empty($_GET['isbn_up']))
                 {
                     $isbn_up = addslashes($_GET['isbn_up']);
-                    $nome = addslashes($_POST['nome']);// addslashes = permite que consiga pegar o valor digitado no input de forma segura e salvar na variavel
+                    $nome = addslashes($_POST['nome']);
                     $edicao = addslashes($_POST['edicao']);
                     $editora = addslashes($_POST['editora']);
                     $autor = addslashes($_POST['autor']);
@@ -83,9 +82,7 @@ if(!isset($_SESSION['id_master']))
                     $numeroPagina = addslashes($_POST['numeroPagina']);
                     $categoria = addslashes($_POST['categoria']);
                     $quantidade = addslashes($_POST['quantidade']);
-
-
-                        
+          
                         if(!empty($nome) && !empty($edicao) && !empty($editora) && !empty($autor) && !empty($dataPublicacao) && !empty($idioma)&& !empty($numeroPagina) && !empty($categoria) && !empty($quantidade)) //empty = verifica se não esta vazio a variavel
                         {
                         $p->atualizarDadosLivro($isbn_up, $nome, $edicao, $editora, $autor, $dataPublicacao, $idioma, $numeroPagina, $categoria, $quantidade);
@@ -99,7 +96,6 @@ if(!isset($_SESSION['id_master']))
                                 </div> 
                             <?php
                         }
-
                 }
             }else if(isset($_GET['id']))
             {
@@ -120,8 +116,8 @@ if(!isset($_SESSION['id_master']))
 
             }
         ?>
-        <?php
         
+        <?php 
             if(isset($_GET['isbn_up']))
             {
                 $id_update = addslashes($_GET['isbn_up']);
@@ -149,7 +145,7 @@ if(!isset($_SESSION['id_master']))
                     <tbody>  
                         <?php
                             $dados = $l->ListarDadosLivro();
-                            if(count($dados) > 0)// verifica se tem LIVROS cadastradas no banco
+                            if(count($dados) > 0)
                                 {
                                     for($i=0; $i < count($dados); $i++){
                                     echo"<tr>";
@@ -166,7 +162,7 @@ if(!isset($_SESSION['id_master']))
                                 <?php
                                 echo "</tr>";
                             }
-                       }else // se o banco estiver vazio
+                       }else
                        {
                        ?>  
 

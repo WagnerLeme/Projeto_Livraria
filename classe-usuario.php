@@ -45,7 +45,6 @@ Class Usuario{
         }
     }
 
-    // USUÁRIO MASTER
     public function buscarDadosUser($id)
     {
         $cmd = $this->pdo->prepare("SELECT * FROM pessoa WHERE id = :id");
@@ -55,10 +54,8 @@ Class Usuario{
         return $dados;  
     }
 
-    // USUÁRIO Normal
     public function emprestar($isbn, $id)
     {   
-  //------------------------PREENCHER TABELA------------------------------
         $qtd_dias = 7;
         $data_emprestimo = date("Y-m-d");
         $data_devolucao = date("Y-m-d", strtotime("+ {$qtd_dias} days"));
@@ -83,19 +80,13 @@ Class Usuario{
         $cmd->bindValue(":i", $isbn);
         $cmd->execute();
         $dados = $cmd->fetch(PDO::FETCH_ASSOC);
-        //$id_emprestimo = $dados['id_emprestimo'];
-        //$devolveu = $dados['devolvido'];
-        //$fk_id = $dados['fk_id'];
-        //if($id == $dados['fk_id'] && $dados['devolvido'] == 0)
+        
         if($id == $dados && $dados == 0)
         {
             return 0;
         }
-       // else if(($dados['fk_id'] == "" || $devolveu == 1))
         else if($dados == "" || $dados == 1)
         {
-
-            //--------------------------------Insert na tabela pessoa_livro------------------------------------
             $devolvido = false;
             $cmd = $this->pdo->prepare("INSERT INTO pessoa_livro (fk_isbn, data_emprestimo, data_devolucao, fk_id, email_pessoa, nome_pessoa, nome_livro, devolvido) VALUE (:id, :data_emprestimo, :data_devolucao, :fk_id, :email, :nome, :nome_livro, :devolvido)");
             $cmd->bindValue(":id", $isbn);
@@ -108,7 +99,6 @@ Class Usuario{
             $cmd->bindValue(":devolvido", $devolvido);
             $cmd->execute();
 
-            //--------------------------------Insert na tabela emprestimo------------------------------------
             $devolvido = false;
             $cmd = $this->pdo->prepare("INSERT INTO emprestimo (fk_isbn, data_emprestimo, data_devolucao, fk_id, email_pessoa, nome_pessoa, nome_livro, devolvido) VALUE (:id, :data_emprestimo, :data_devolucao, :fk_id, :email, :nome, :nome_livro, :devolvido)");
             $cmd->bindValue(":id", $isbn);
@@ -127,16 +117,13 @@ Class Usuario{
             $cmd->bindValue(":quantidade", $quantidade);
             $cmd->bindValue(":id", $id);
             $cmd->execute();
-
             return 1;
         }    
 
     }
 
     public function devolver($isbn, $id)
-    {
-        
-        
+    {    
         $cmd = $this->pdo->prepare("SELECT * from livros WHERE isbn = :isbn");
         $cmd->bindValue(":isbn", $isbn);
         $cmd->execute();
@@ -169,26 +156,22 @@ Class Usuario{
             $cmd->bindValue(":quantidade", $quantidade);
             $cmd->bindValue(":isbn", $isbn);
             $cmd->execute();
-            //--------------------------------update na tabela pessoa_livro------------------------------------
+            
             $cmd = $this->pdo->prepare("UPDATE pessoa_livro SET devolvido = :devolvido WHERE fk_id = :fk_id AND fk_isbn = :fk_isbn");
             $cmd->bindValue(":fk_id", $fk_id_pessoa);
             $cmd->bindValue(":devolvido", $devolvido);
             $cmd->bindValue(":fk_isbn", $isbn);
             $cmd->execute();
 
-            //--------------------------------update na tabela pessoa_livro------------------------------------
             $cmd = $this->pdo->prepare("UPDATE emprestimo SET devolvido = :d WHERE fk_id = :fk_id AND fk_isbn = :fk_isbn");
             $cmd->bindValue(":fk_id", $fk_id_pessoa);
             $cmd->bindValue(":d", $devolvido);
             $cmd->bindValue(":fk_isbn", $isbn);
             $cmd->execute();
  
-
-            //--------------excluir registro de emprestimo-----------------------
             $cmd = $this->pdo->prepare("DELETE FROM pessoa_livro WHERE id_emprestimo = :id_emprestimo");
             $cmd->bindValue(":id_emprestimo", $id_emprestimo);
             $cmd->execute();
-
             return 1;
         }
         
@@ -217,6 +200,4 @@ Class Usuario{
         return $res;
     }
 }        
-
-
 ?>

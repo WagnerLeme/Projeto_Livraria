@@ -67,23 +67,22 @@ if(!isset($_SESSION['id_master']))
      </header> 
     <main class="corpo-cadastro-livro">
         <?php
-            if(isset($_POST['nome']))// isset verifica se existe o array post chamado nome; e i IF VERIFICA SE A PESSOA CLICOU NO BOTÃO CADASTRAR OU NO BOTÃO EDITAR
+            if(isset($_POST['nome']))
             {
-                //---------------------- EDITAR ----------------------
                 if(isset($_GET['id_up']) && !empty($_GET['id_up']))
                 {
                     $id_upd = addslashes($_GET['id_up']);
-                    $nome = addslashes($_POST['nome']);// addslashes = permite que consiga pegar o valor digitado no input de forma segura e salvar na variavel
+                    $nome = addslashes($_POST['nome']);
                     $telefone = addslashes($_POST['telefone']);
                     $email = addslashes($_POST['email']);
                     $endereco = addslashes($_POST['endereco']);
                     $senha = addslashes($_POST['senha']);
                     $permissao = addslashes($_POST['permissao']);
 
-                        if(!empty($nome) && !empty($telefone) && !empty($email) && !empty($endereco) && !empty($senha) && !empty($permissao)) //empty = verifica se não esta vazio a variavel
+                        if(!empty($nome) && !empty($telefone) && !empty($email) && !empty($endereco) && !empty($senha) && !empty($permissao))
                         {
-                        $p->atualizarDados($id_upd, $nome, $telefone, $email, $endereco, $senha, $permissao);
-                        header("location: consulta-usuario.php");
+                            $p->atualizarDados($id_upd, $nome, $telefone, $email, $endereco, $senha, $permissao);
+                            header("location: consulta-usuario.php");
                         }
                         else
                         {
@@ -95,7 +94,8 @@ if(!isset($_SESSION['id_master']))
                         }
 
                 }
-            }else if(isset($_GET['id']))
+            }
+            else if(isset($_GET['id']))
             {
                 $id_pessoa = addslashes($_GET['id']);
                 
@@ -143,7 +143,7 @@ if(!isset($_SESSION['id_master']))
                     <tbody>
                         <?php
                             $dados = $p->buscarDados();
-                            if(count($dados) > 0)// verifica se tem pessoas cadastradas no banco
+                            if(count($dados) > 0)
                             {
                                 for($i=0; $i < count($dados); $i++){
                                     echo"<tr>";
@@ -161,7 +161,7 @@ if(!isset($_SESSION['id_master']))
                                     echo "</tr>";
                                 }
                             }
-                            else // se o banco estiver vazio
+                            else 
                             {
                             ?> 
                             

@@ -48,7 +48,6 @@ if(isset($_SESSION['id_master']))
                     if(isset($_SESSION['id_usuario']))
                     {
                         ?>
-                       
                         <li><a href="consulta-livro.php" title="Livros Cadastrados"><span class="material-icons">manage_search</span></a></li>
                         <li><a href="historico-emprestimo.php" title="Histórico"><span class="material-icons"><span class="material-icons">fact_check</span></span></a></li>
                         <li><a href="sair.php" title="Sair"><span class="material-icons">logout </span></a></li>
@@ -90,10 +89,10 @@ if(isset($_SESSION['id_master']))
                                 <div class="aviso container">
                                     <h4 class="alert-message">Você já esta com esse livro emprestado, devolva antes de solicitar ele novamente</h4>
                                 </div> 
-                                <?php
-                                
-                                
-                            }else{
+                                <?php     
+                            }
+                            else
+                            {
                                 ?>
                                 <div class="aviso container">
                                     <h4 class="alert-message">Emprestado com sucesso</h4>
@@ -114,9 +113,9 @@ if(isset($_SESSION['id_master']))
                         }
 
                     }
-            }else if(isset($_GET['id']))
-            {
-                
+            }
+            else if(isset($_GET['id']))
+            { 
                 $id = addslashes($_GET['id']);
                 $res = $us->devolver($id, $informacoes['id']);
                 if($res == 0)
@@ -162,7 +161,7 @@ if(isset($_SESSION['id_master']))
                     <tbody>  
                     <?php
                         $dados = $l->ListarDadosLivro();
-                        if(count($dados) > 0)// verifica se tem LIVROS cadastradas no banco
+                        if(count($dados) > 0)
                         {
                             for($i=0; $i < count($dados); $i++){
                                 echo"<tr>";
@@ -179,7 +178,7 @@ if(isset($_SESSION['id_master']))
                             <?php
                             echo "</tr>";
                         }
-                    }else // se o banco estiver vazio
+                    }else
                     {
                     ?>  
                               <div class="aviso">
@@ -189,8 +188,7 @@ if(isset($_SESSION['id_master']))
                     }
                 ?>
                      </tbody>
-                        </table>
-                  
+                </table>
             </section>
         </div>  
     </main> 

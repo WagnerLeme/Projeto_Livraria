@@ -1,6 +1,5 @@
 <?php
 
-
 Class Livro{
 
     private $pdo;
@@ -20,7 +19,7 @@ Class Livro{
             exit();
         }
     }
-    // Função que lista todos cadastrados no BD
+    
     public function ListarDadosLivro()
     {
         $res = array();
@@ -28,13 +27,13 @@ Class Livro{
         $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }  
-    // função que cadastra usuário
+    
     public function cadastrarLivro($isbn, $nome, $edicao, $editora, $autor, $dataPublicacao, $idioma, $numeroPagina, $categoria, $quantidade)
-    {   // verificando se o livro já foi cadastrado
+    {   
         $cmd = $this->pdo->prepare("SELECT isbn From livros WHERE nome = :n");
         $cmd -> bindValue(":n", $nome);
         $cmd -> execute();
-        if($cmd -> rowCount()>0)// verifica se o e-mail já existe no banco de dados
+        if($cmd -> rowCount()>0)
         {
             return false;
         }else 
@@ -56,7 +55,6 @@ Class Livro{
         
     }
 
-    // metodo de excluir pessoa
     public function excluirLivro($isbn)
     {
         try
@@ -70,7 +68,6 @@ Class Livro{
         }
     }
 
-    // buscar os dados de um livro
     public function buscarDadosLivro($isbn)
     {
         $res = array();
@@ -80,8 +77,7 @@ Class Livro{
         $res = $cmd->fetch(PDO::FETCH_ASSOC);
         return $res;
     }
-
-    //Atualizar dados no banco 
+ 
     public function atualizarDadosLivro($isbn, $nome, $edicao, $editora, $autor, $dataPublicacao, $idioma, $numeroPagina, $categoria, $quantidade)
     {
        

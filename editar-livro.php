@@ -57,15 +57,12 @@ if(!isset($_SESSION['id_master']))
             </div>
         </nav>       
      </header> 
-    <main>
-
+<main>
     <?php
-            if(isset($_POST['nome']))// isset verifica se existe o array post chamado nome; e i IF VERIFICA SE A PESSOA CLICOU NO BOTÃO CADASTRAR OU NO BOTÃO EDITAR
+            if(isset($_POST['nome']))
             {
-                //---------------------- EDITAR ----------------------
                 if(isset($_GET['isbn_up']) && !empty($_GET['isbn_up']))
                 {
-                    //$isbn_up = addslashes($_GET['isbn_up']);
                     $isbn = addslashes($_POST['isbn']);
                     $nome = addslashes($_POST['nome']);
                     $edicao = addslashes($_POST['edicao']);
@@ -77,7 +74,7 @@ if(!isset($_SESSION['id_master']))
                     $categoria = addslashes($_POST['categoria']);
                     $quantidade = addslashes($_POST['quantidade']);
 
-                        if(!empty($isbn) && !empty($nome) && !empty($edicao) && !empty($editora) && !empty($autor) && !empty($dataPublicacao) && !empty($idioma) && !empty($numeroPagina) && !empty($categoria) && !empty($quantidade)) //empty = verifica se não esta vazio a variavel
+                        if(!empty($isbn) && !empty($nome) && !empty($edicao) && !empty($editora) && !empty($autor) && !empty($dataPublicacao) && !empty($idioma) && !empty($numeroPagina) && !empty($categoria) && !empty($quantidade)) 
                         {
                         $l->atualizarDadosLivro($isbn, $nome, $edicao, $editora, $autor, $dataPublicacao, $idioma, $numeroPagina, $categoria, $quantidade);
                         header("location: consulta-livro.php");
@@ -155,11 +152,11 @@ if(!isset($_SESSION['id_master']))
                         value="<?php if(isset($res)){echo $res['quantidade'];}?>"
                         >
 
-                        <input type="submit"
+                        <input type="submit" class="btn blue darken-4 white-text  waves-light col s12"
                         value="<?php if(isset($res)){echo "Atualizar";}?>">
-                    
                     </form>
-                </section>
-            </div> 
-    </main> 
-
+            </section>
+        </div> 
+</main> 
+</body>
+</html>

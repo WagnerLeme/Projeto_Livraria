@@ -49,7 +49,7 @@
                             elseif(isset($_SESSION['id_usuario']))
                             {
                                 ?>
-                                <li><a href="consulta-livro.php" title="Livros Cadastrados"><span class="material-icons">manage_search</span></a></li>
+                                <li><a href="consulta-padrao.php" title="Livros Cadastrados"><span class="material-icons">manage_search</span></a></li>
                                 <li><a href="historico-emprestimo.php" title="Histórico"><span class="material-icons"><span class="material-icons">fact_check</span></span></a></li>
                                 <li><a href="sair.php" title="Sair"><span class="material-icons">logout </span></a></li>
                                 <li><a><span class="material-icons">person</span> &nbsp <?php echo $informacoes['nome']?></a></li>
@@ -91,7 +91,7 @@
                             <div class="card">
                                 <div class="card-image">
                                     <img src="img/livro.png">
-                                    <!--<span class="card-title">CADASTRAR USUÁRIO</span>-->
+                                    
                                 </div>
 
                                 <div class="card-content">
@@ -108,7 +108,7 @@
                             <div class="card">
                                 <div class="card-image">
                                     <img src="img/cadastrar-usuario.jpg">
-                                    <!-- <span class="card-title">CADASTRAR LIVRO</span>-->
+                                    
                                 </div>
                                 <div class="card-content">
                                 <h5 class="title-cards light">CADASTRO DE LIVRO </h5>
@@ -190,22 +190,5 @@
 
     <!-- MATERIALIZE JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
-        <script>
-        // INICIALIZAÇÃO 
-        $(document).ready(function () {
-            // MENU MOBILE
-            $(".button-collapse").sideNav();
-
-        });
-        // ADICIONANDO NAVCOLOR
-        $(window).on("scroll", function () {
-            if ($(window).scrollTop() > 100) {
-                $(".navbar").addClass("nav-color");
-            } else {
-                $(".navbar").removeClass("nav-color");
-            }
-        });
-
 </body>
 </html>

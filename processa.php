@@ -16,11 +16,7 @@ if(isset($_POST['email']))
             if($u->logar($email, $senha))
             {
                 header("location: areaPrivada.php");
-            }
-            else
-            {   
-              //header("location: login.php");
-            }       
+            }     
         }
         else
         {

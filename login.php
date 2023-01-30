@@ -31,24 +31,9 @@
 
     </div>
 
-
-    <script>
-        $(document).ready(function(){
-
-            setTimeout(function(){
-                $(".alert").alert('close');
-            }, 5000);
-
-            $(".navbar-toggle").click(function(){
-                $(".sidebar").toggleClass("sidebar-open");
-            });
-        });
-    </script>
-
 </body>
 </html>
 
-<!--------------------------------PHP--------------------------------->
 <?php
 
 if(isset($_POST['email']))
@@ -66,22 +51,20 @@ if(isset($_POST['email']))
         }
         else
         {
-            ?>
-                <div class="aviso container alert">
-                    <h4 class="alert-message"><?php echo"Email e/ou senha estão incorretos"?></h4>
-                </div> 
-            <?php
-            
+        ?>
+            <div class="aviso container alert">
+                <h4 class="alert-message"><?php echo"Email e/ou senha estão incorretos"?></h4>
+            </div> 
+        <?php  
         }
     }
     else
-    {
-        
+    {  
         ?>            
-               <div class="aviso container alert">
-                    <h4 class="alert-message"><?php echo"Preencha todos os campos!"?></h4>
-                </div> 
-            <?php
+            <div class="aviso container alert">
+                <h4 class="alert-message"><?php echo"Preencha todos os campos!"?></h4>
+            </div> 
+        <?php
     }
 }
 ?>

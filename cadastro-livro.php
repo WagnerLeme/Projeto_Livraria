@@ -65,10 +65,10 @@ if(!isset($_SESSION['id_master']))
 </header>
 <main class="corpo-cadastro-livro">  
         <?php
-            if(isset($_POST['nome']))// isset verifica se existe o array post chamado nome; e i IF VERIFICA SE A PESSOA CLICOU NO BOTÃO CADASTRAR OU NO BOTÃO EDITAR
+            if(isset($_POST['nome']))
             {
                     $isbn = addslashes($_POST['isbn']);
-                    $nome = addslashes($_POST['nome']);// addslashes = permite que consiga pegar o valor digitado no input de forma segura e salvar na variavel
+                    $nome = addslashes($_POST['nome']);
                     $edicao = addslashes($_POST['edicao']);
                     $editora = addslashes($_POST['editora']);
                     $autor = addslashes($_POST['autor']);
@@ -78,7 +78,7 @@ if(!isset($_SESSION['id_master']))
                     $categoria = addslashes($_POST['categoria']);
                     $quantidade = addslashes($_POST['quantidade']);
 
-                        if(!empty($isbn) && !empty($nome) && !empty($edicao) && !empty($editora) && !empty($autor) && !empty($dataPublicacao) && !empty($idioma)&& !empty($numeroPagina) && !empty($categoria) && !empty($quantidade)) //empty = verifica se não esta vazio a variavel
+                        if(!empty($isbn) && !empty($nome) && !empty($edicao) && !empty($editora) && !empty($autor) && !empty($dataPublicacao) && !empty($idioma)&& !empty($numeroPagina) && !empty($categoria) && !empty($quantidade)) 
                         {
                             if($l->cadastrarLivro($isbn, $nome, $edicao, $editora, $autor, $dataPublicacao, $idioma, $numeroPagina, $categoria, $quantidade) == true)
                             {

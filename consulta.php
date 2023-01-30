@@ -87,7 +87,6 @@
                    <div class="card">
                         <div class="card-image">
                             <img src="img/consulta-usuario.jpg">
-                            <!--<span class="card-title">CONSULTAR USUÁRIO</span>-->
                         </div>
 
                         <div class="card-content">
@@ -140,60 +139,7 @@
             }
             elseif(isset($_SESSION['id_usuario']))
             { 
-                ?>
-                    <div class="row container">
-                        <div class="col s12 m12 l4">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="img/livro.png">
-                                    <span class="card-title">Consulta/Reservas/ Datas</span>
-                                </div>
-
-                                <div class="card-content">
-                                    <p>Serviço de consulta - Verificar datas de entregas, livros já emprestados... </p>
-                                </div>
-                                <div class="card-action">
-                                    <a href="#">Consulte aqui</a>
-                                </div>
-                            </div>
-                            </div>
-
-                        <div class="col s12 m12 l4">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="img/livro.png">
-                                    <span class="card-title">BIBLIOTECA ONLINE</span>
-                                </div>
-                                <div class="card-content">
-                                    <p>Utilize esse recurso para filtrar e consultar os livros de acordo com o seu perfil e verificar disponibilidade</p>
-                                </div>
-                                <div class="card-action">
-                                    <a href="#">This is a link</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col s12 m12 l4">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="img/livro.png">
-                                    <span class="card-title">Atualizar Perfil</span>
-                                </div>
-                                <div class="card-content">
-                                    <p>Atualizar dados do perfil</p>
-                                </div>
-                                <div class="card-action">
-                                    <a href="#">Atualizar </a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                <?php
-            }
-            else 
-            {
-                header("location: login.php");
+                header("location: areaPrivada.php");
             }
                 ?>
     </main>
@@ -205,6 +151,5 @@
             <p class="light white-text">&copy Sistema de Gestão e Controle de Livros - 2023 - Todos os direitos reservados.</p>
         </div>
     </footer>
-
 </body>
 </html>

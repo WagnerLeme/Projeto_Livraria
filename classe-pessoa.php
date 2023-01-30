@@ -19,7 +19,7 @@ Class Pessoa{
             exit();
         }
     }
-    // Função que lista todos cadastrados no BD
+    
     public function buscarDados()
     {
         $res = array();
@@ -27,13 +27,13 @@ Class Pessoa{
         $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }  
-    // função que cadastra usuário
+    
     public function cadastrarPessoa($nome, $telefone, $email, $endereco, $senha, $permissao)
-    {   // verificando se o e-mail já foi cadastrado
+    {  
         $cmd = $this->pdo->prepare("SELECT id FROM pessoa WHERE email = :e");
         $cmd -> bindValue(":e", $email);
         $cmd -> execute();
-        if($cmd -> rowCount()>0)// verifica se o e-mail já existe no banco de dados
+        if($cmd -> rowCount()>0)
         {
             return false;
         }else 
@@ -53,7 +53,6 @@ Class Pessoa{
         
     }
 
-    // metodo de excluir pessoa
     public function excluirPessoa($id)
     {
         try
@@ -67,7 +66,6 @@ Class Pessoa{
         }
     }
 
-    // buscar os dados de uma pessoa
     public function buscarDadosPessoa($id)
     {
         $res = array();
@@ -77,8 +75,7 @@ Class Pessoa{
         $res = $cmd->fetch(PDO::FETCH_ASSOC);
         return $res;
     }
-
-    //Atualizar dados no banco 
+ 
     public function atualizarDados($id, $nome, $telefone, $email, $endereco, $senha, $permissao)
     {
        

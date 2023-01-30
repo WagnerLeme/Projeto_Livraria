@@ -89,14 +89,12 @@ if(!isset($_SESSION['id_master']))
                     <tbody>  
                         <?php
                             $dados = $us->ListarDadosEmprestimos();
-                            if(count($dados) > 0)// verifica se tem LIVROS cadastradas no banco
+                            if(count($dados) > 0)
                                 {
                                     for($i=0; $i < count($dados); $i++){
                                     echo"<tr>";
                                     foreach($dados[$i] as $k => $v){
-                                        //if($k != "reservar" && $k != "fk_id_pessoa" && $k != "isbn" && $k != "numeroPagina" && $k != "idioma"){
-                                            echo "<td>".$v."</td>";
-                                        //}    
+                                            echo "<td>".$v."</td>";    
                                     }
                                 ?>
                                     <td>
@@ -105,7 +103,7 @@ if(!isset($_SESSION['id_master']))
                                 <?php
                                 echo "</tr>";
                             }
-                       }else // se o banco estiver vazio
+                       }else 
                        {
                        ?>  
                              <div class="aviso">
